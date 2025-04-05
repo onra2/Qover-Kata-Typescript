@@ -25,7 +25,8 @@ export class GildedRose {
       const isBrie = item.name === 'Aged Brie';
       const isBackstage = item.name === 'Backstage passes to a TAFKAL80ETC concert';
 
-      
+      item.sellIn--;
+      item.quality--;
     }
     return this.items;
   }
