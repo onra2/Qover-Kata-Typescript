@@ -32,6 +32,10 @@ export class GildedRose {
 
       item.sellIn--;
       item.quality -= degradeRate;
+
+      if(item.quality < 0){
+        item.quality = 0;
+      }
     }
     return this.items;
   }
