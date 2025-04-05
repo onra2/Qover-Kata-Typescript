@@ -23,17 +23,17 @@ describe('Gilded Rose', () => {
     expect(items2[0].sellIn).toBe(0);
   });
 
-  it('should increase Aged Brie quality over time by 2 after sell date', () => {
+  it('should increase Aged Brie quality over time by 1 after sell date', () => {
     const gildedRose = new GildedRose([new Item('Aged Brie', -1, 4)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).toBe(6);
+    expect(items[0].quality).toBe(5);
     expect(items[0].sellIn).toBe(-2);
   });
 
-  it('should increase Conjured Aged Brie quality over time by 4 after sell date', () => {
+  it('should increase Conjured Aged Brie quality over time by 1 after sell date', () => {
     const gildedRose = new GildedRose([new Item('Conjured Aged Brie', -1, 4)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).toBe(8);
+    expect(items[0].quality).toBe(5);
     expect(items[0].sellIn).toBe(-2);
   });
 

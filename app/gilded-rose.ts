@@ -21,7 +21,7 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       const isConjured = item.name.toLowerCase().includes('conjured');
-      const isSulfuras = item.name.toLowerCase().includes('sulfras');
+      const isSulfuras = item.name.toLowerCase().includes('sulfuras, hand of ragnaros');
       const isBrie = item.name.toLowerCase().includes('aged brie');
       const isBackstage = item.name.toLowerCase().includes('backstage passes to a tafkal80etc concert');
 
@@ -40,7 +40,7 @@ export class GildedRose {
       }
 
       if (isBrie){
-        item.quality += 1 * degradeMultiplier;
+        item.quality += 1;
       }
       else if(isBackstage){
         if (item.sellIn < 0) {
@@ -53,7 +53,7 @@ export class GildedRose {
           item.quality += 2;
         }
       }
-      else{
+      else if (!isBrie && !isBackstage) {//in case of conjured item, we need to check if it is not brie or backstage
         item.quality -= 1 * degradeMultiplier;
       }
 
