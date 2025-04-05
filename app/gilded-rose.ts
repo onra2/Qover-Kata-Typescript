@@ -35,6 +35,10 @@ export class GildedRose {
         degradeMultiplier = 2;
       }
 
+      if(isConjured){
+        degradeMultiplier *= 2;
+      }
+
       if (isBrie){
         item.quality += 1;
       }
