@@ -56,7 +56,7 @@ export class GildedRose {
           item.quality += 1;
         }
       }
-      else if (!isBrie && !isBackstage) {//in case of conjured item, we need to check if it is not brie or backstage
+      else if (!isBrie && !isBackstage) {//in case of conjured item, we need to check if it is not brie or backstage as they increase quality
         item.quality -= 1 * degradeMultiplier;
       }
 

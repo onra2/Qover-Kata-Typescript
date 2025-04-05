@@ -69,6 +69,12 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBe(23);
   });
 
+  it('should increase quality of conjured backstage passes by 2 if 10 days or less', () => {
+    const gildedRose = new GildedRose([new Item('Conjured Backstage passes to a TAFKAL80ETC concert', 10, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(22);
+  });
+
   it('should set quality to 0 after concert', () => {
     const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', -1, 33)]);
     const items = gildedRose.updateQuality();
