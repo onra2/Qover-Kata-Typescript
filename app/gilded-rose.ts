@@ -26,35 +26,34 @@ export class GildedRose {
       const isBackstage = item.name === 'Backstage passes to a TAFKAL80ETC concert';
 
       if(isSulfuras) {
+        item.quality = 80; // Sulfuras quality is always 80
         continue; // Sulfuras does not change
       }
 
-      let degradeRate = 1;
+      let degradeMultiplier = 1;
       if(item.sellIn < 0){
-        degradeRate = 2;
+        degradeMultiplier = 2;
       }
 
-      item.sellIn--;
       if (isBrie){
-        item.quality += degradeRate;
+        item.quality += 1;
       }
       else if(isBackstage){
-        if(item.sellIn < 6){
-          degradeRate = 3;
-          item.quality += degradeRate;
+        if (item.sellIn < 0) {
+          item.quality = 0;
+        }
+        else if(item.sellIn < 6){
+          item.quality += 3;
         }
         else if(item.sellIn < 11){
-          degradeRate = 2;
-          item.quality += degradeRate;
-        }
-        if(item.sellIn < 0){
-          item.quality = 0;
+          item.quality += 2;
         }
       }
       else{
-        item.quality -= degradeRate;
+        item.quality -= 1 * degradeMultiplier;
       }
 
+      item.sellIn--;
       if(item.quality < 0){
         item.quality = 0;
       }
