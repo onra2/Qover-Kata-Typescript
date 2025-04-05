@@ -35,8 +35,21 @@ export class GildedRose {
       }
 
       item.sellIn--;
-      if (isBrie || isBackstage) {
+      if (isBrie){
         item.quality += degradeRate;
+      }
+      else if(isBackstage){
+        if(item.sellIn < 6){
+          degradeRate = 3;
+          item.quality += degradeRate;
+        }
+        else if(item.sellIn < 11){
+          degradeRate = 2;
+          item.quality += degradeRate;
+        }
+        if(item.sellIn < 0){
+          item.quality = 0;
+        }
       }
       else{
         item.quality -= degradeRate;
