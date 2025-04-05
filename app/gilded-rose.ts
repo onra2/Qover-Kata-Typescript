@@ -31,7 +31,12 @@ export class GildedRose {
       }
 
       item.sellIn--;
-      item.quality -= degradeRate;
+      if (isBrie){
+        item.quality += degradeRate;
+      }
+      else{
+        item.quality -= degradeRate;
+      }
 
       if(item.quality < 0){
         item.quality = 0;
