@@ -31,7 +31,7 @@ export class GildedRose {
       }
 
       item.sellIn--;
-      item.quality--;
+      item.quality -= degradeRate;
     }
     return this.items;
   }
