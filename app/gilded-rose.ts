@@ -52,6 +52,9 @@ export class GildedRose {
         else if(item.sellIn < 11){
           item.quality += 2;
         }
+        else {
+          item.quality += 1;
+        }
       }
       else if (!isBrie && !isBackstage) {//in case of conjured item, we need to check if it is not brie or backstage
         item.quality -= 1 * degradeMultiplier;

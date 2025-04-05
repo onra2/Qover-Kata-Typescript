@@ -50,6 +50,13 @@ describe('Gilded Rose', () => {
     expect(items[0].sellIn).toBe(0);
   });
 
+  it('should increase Backstage Passes quality by 1 if days > 10', () => {
+    const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(21);
+    expect(items[0].sellIn).toBe(14);
+  });
+
   it('should increase quality of backstage passes by 2 if 10 days or less', () => {
     const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20)]);
     const items = gildedRose.updateQuality();
@@ -80,18 +87,12 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBe(16);
   });
 
-  // it('should set Sulfuras quality to 80 if it is not 80', () => {
-  //   const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 0, 60)]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].quality).toBe(80);
-  //   expect(items[0].sellIn).toBe(0);
-  // });
-
-  // it('should increase Backstage Passes quality by 1 when sellIn > 10', () => {
-  //   const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].quality).toBe(21);
-  // });
+  it('should set Sulfuras quality to 80 if it is not 80', () => {
+    const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 0, 60)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(80);
+    expect(items[0].sellIn).toBe(0);
+  });
 
   // it('should increase Backstage Passes quality by 2 when 10 >= sellIn > 5', () => {
   //   const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20)]);
