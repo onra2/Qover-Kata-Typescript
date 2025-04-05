@@ -21,9 +21,9 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       const isConjured = item.name.toLowerCase().includes('conjured');
-      const isSulfuras = item.name === 'Sulfuras, Hand of Ragnaros';
+      const isSulfuras = item.name.toLowerCase().includes('sulfras');
       const isBrie = item.name.toLowerCase().includes('aged brie');
-      const isBackstage = item.name === 'Backstage passes to a TAFKAL80ETC concert';
+      const isBackstage = item.name.toLowerCase().includes('backstage passes to a tafkal80etc concert');
 
       if(isSulfuras) {
         item.quality = 80; // Sulfuras quality is always 80
