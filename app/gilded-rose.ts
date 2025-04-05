@@ -22,7 +22,7 @@ export class GildedRose {
       const item = this.items[i];
       const isConjured = item.name.toLowerCase().includes('conjured');
       const isSulfuras = item.name === 'Sulfuras, Hand of Ragnaros';
-      const isBrie = item.name === 'Aged Brie';
+      const isBrie = item.name.toLowerCase().includes('aged brie');
       const isBackstage = item.name === 'Backstage passes to a TAFKAL80ETC concert';
 
       if(isSulfuras) {
