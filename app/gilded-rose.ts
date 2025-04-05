@@ -40,7 +40,7 @@ export class GildedRose {
       }
 
       if (isBrie){
-        item.quality += 1;
+        item.quality += 1 * degradeMultiplier;
       }
       else if(isBackstage){
         if (item.sellIn < 0) {

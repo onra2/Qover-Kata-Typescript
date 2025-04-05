@@ -7,12 +7,6 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBe(18);
   });
 
-  it('should degrade quality twice as fast after sell date + twice as fast if its a conjured item', () => {
-    const gildedRose = new GildedRose([new Item('Conjured Elixir of the Mongoose', -1, 20)]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).toBe(16);
-  });
-
   it('should not have negative quality', () => {
     const gildedRose = new GildedRose([new Item('Conjured Elixir of the Mongoose', -1, 1)]);
     const items = gildedRose.updateQuality();
@@ -64,6 +58,18 @@ describe('Gilded Rose', () => {
     const gildedRose = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', -1, 33)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(0);
+  });
+
+  it('should degrade quality twice as fast if its a conjured item (-2)', () => {
+    const gildedRose = new GildedRose([new Item('Conjured Elixir of the Mongoose', 4, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(18);
+  });
+
+  it('should degrade quality twice as fast after sell date + twice as fast if its a conjured item (-4)', () => {
+    const gildedRose = new GildedRose([new Item('Conjured Elixir of the Mongoose', -1, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(16);
   });
 
   // it('should set Sulfuras quality to 80 if it is not 80', () => {
